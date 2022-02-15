@@ -43,7 +43,7 @@ namespace UsingSwaggerApi.Controllers
             using (var client = new HttpClient())
             {
                 var url = new Uri("https://servicew.wheebox.com/WheeboxRestService_blob/generatepageURL");
-                StringContent httpConent = new StringContent(data, System.Text.Encoding.UTF8);
+                StringContent httpConent = new StringContent(data, System.Text.Encoding.UTF8,"application/json");
                 httpConent.Headers.Add("Authorization", token);
                 var response = await client.PostAsync(url, httpConent);
                 string json;
