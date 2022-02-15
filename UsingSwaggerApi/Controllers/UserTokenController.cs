@@ -58,5 +58,21 @@ namespace UsingSwaggerApi.Controllers
             }
         }
 
+        [HttpPost("GeneratePageURL1")]
+        public async Task<ActionResult<string>> GeneratePageURL1(PageUrlModel pageurl)
+        {
+            string token = HttpContext.Request.Headers["Authrization"];
+
+            string data = JsonConvert.SerializeObject(pageurl);
+
+            ApiCaller caller = new ApiCaller();
+           string str=  caller.sendMessageWithAuthToken("https://servicew.wheebox.com/WheeboxRestService_blob/generatepageURL",
+                   data,
+                   token
+                );
+
+            return str;
+        }
+
     }
 }
