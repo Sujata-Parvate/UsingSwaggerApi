@@ -54,6 +54,7 @@ public class ApiCaller
         Console.WriteLine(postData);
         Byte[] byteArray = Encoding.UTF8.GetBytes(postData);
         tRequest.ContentLength = byteArray.Length;
+
         Stream dataStream = tRequest.GetRequestStream();
         dataStream.Write(byteArray, 0, byteArray.Length);
         dataStream.Close();
