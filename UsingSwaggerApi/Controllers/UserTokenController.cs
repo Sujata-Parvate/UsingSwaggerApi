@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using UsingSwaggerApi.Model;
 
@@ -44,7 +45,9 @@ namespace UsingSwaggerApi.Controllers
             {
                 var url = new Uri("https://servicew.wheebox.com/WheeboxRestService_blob/generatepageURL");
                 StringContent httpConent = new StringContent(data, System.Text.Encoding.UTF8);
-                httpConent.Headers.Add("Authorization", token);
+               // httpConent.Headers.Add("Authorization", token);
+               client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("", token);
+
                 var response = await client.PostAsync(url, httpConent);
                 string json;
                 using (var content = response.Content)
