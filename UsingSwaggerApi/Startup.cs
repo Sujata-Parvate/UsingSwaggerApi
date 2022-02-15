@@ -47,7 +47,7 @@ namespace UsingSwaggerApi
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseCors(options =>
-            options.WithOrigins("http://localhost:4200")
+            options.WithOrigins("*")
                    .AllowAnyMethod()
                    .AllowAnyHeader());
 

@@ -13,9 +13,9 @@ namespace UsingSwaggerApi.Data
             : base(options)
         {
         }
-        public DbSet<User> User { get; set; }
-        public DbSet<Skill> Skill { get; set; }
-        public DbSet<AssessmentStatus> AssessmentStatus { get; set; }
+        //public DbSet<User> User { get; set; }
+        //public DbSet<Skill> Skill { get; set; }
+        //public DbSet<AssessmentStatus> AssessmentStatus { get; set; }
 
     }
 }

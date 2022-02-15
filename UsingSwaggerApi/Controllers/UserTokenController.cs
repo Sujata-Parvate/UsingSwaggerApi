@@ -15,7 +15,7 @@ namespace UsingSwaggerApi.Controllers
     public class UserTokenController : ControllerBase
     {
 
-        [HttpPost]
+        [HttpPost("GetToken")]
         public async Task<ActionResult<string>> GetToken(UserModel token)
         {
             string data = JsonConvert.SerializeObject(token);
@@ -33,21 +33,25 @@ namespace UsingSwaggerApi.Controllers
             }
         }
 
-        //public async Task<Token> GetToken(Token token)
-        //{
 
-        //    string apiUrl = "https://servicew.wheebox.com/WheeboxRestService_blob/getToken";
-        //    var client = new HttpClient();
-        //    HttpResponseMessage response = await client.GetAsync(apiUrl).Result;
+        [HttpPost("GeneratePageURL")]
+        public async Task<ActionResult<string>> GeneratePageURL(PageUrlModel pageurl)
+        {
 
-        //    token = JsonConvert.DeserializeObject<List<Token>>(response.Content.ReadAsStringAsync().Result)
-
-        //    //response.EnsureSuccessStatusCode();
-
-        //    // return URI of the created resource.
-        //    return response;
-        //}
-
+            string data = JsonConvert.SerializeObject(pageurl);
+            using (var client = new HttpClient())
+            {
+                var url = new Uri("https://servicew.wheebox.com/WheeboxRestService_blob/generatepageURL");
+                StringContent httpConent = new StringContent(data, System.Text.Encoding.UTF8);
+                var response = await client.PostAsync(url, httpConent);
+                string json;
+                using (var content = response.Content)
+                {
+                    json = await content.ReadAsStringAsync();
+                }
+                return json;
+            }
+        }
 
     }
 }
