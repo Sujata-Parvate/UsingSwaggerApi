@@ -37,14 +37,14 @@ namespace UsingSwaggerApi.Controllers
         [HttpPost("GeneratePageURL")]
         public async Task<ActionResult<string>> GeneratePageURL(PageUrlModel pageurl)
         {
-            string token = HttpContext.Request.Headers["token"];
+            string token = HttpContext.Request.Headers["Authrization"];
 
             string data = JsonConvert.SerializeObject(pageurl);
             using (var client = new HttpClient())
             {
                 var url = new Uri("https://servicew.wheebox.com/WheeboxRestService_blob/generatepageURL");
                 StringContent httpConent = new StringContent(data, System.Text.Encoding.UTF8);
-                httpConent.Headers.Add("Authorization",token);
+                httpConent.Headers.Add("Authorization", token);
                 var response = await client.PostAsync(url, httpConent);
                 string json;
                 using (var content = response.Content)
