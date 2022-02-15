@@ -26,6 +26,8 @@ namespace UsingSwaggerApi.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+
+             var t =  HttpContext.Request.Headers["abc"];
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
