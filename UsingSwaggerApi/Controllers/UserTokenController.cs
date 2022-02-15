@@ -65,8 +65,8 @@ namespace UsingSwaggerApi.Controllers
 
             string data = JsonConvert.SerializeObject(pageurl);
 
-            ApiCaller caller = new ApiCaller();
-           string str=  caller.sendMessageWithAuthToken("https://servicew.wheebox.com/WheeboxRestService_blob/generatepageURL",
+             ApiCaller caller = new ApiCaller();
+             string str=  caller.sendMessageWithAuthToken("https://servicew.wheebox.com/WheeboxRestService_blob/generatepageURL",
                    data,
                    token
                 );

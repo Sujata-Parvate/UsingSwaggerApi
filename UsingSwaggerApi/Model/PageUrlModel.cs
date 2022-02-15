@@ -15,7 +15,7 @@ namespace UsingSwaggerApi.Model
         public string param { get; set; }
         public string pagetype { get; set; }
         public bool autoapproval { get; set; }
-        public int attemptnumber { get; set; }
+        public string attemptnumber { get; set; }
         public string captureimage { get; set; }
 
     }
