@@ -58,15 +58,47 @@ namespace UsingSwaggerApi.Controllers
         [HttpPost("GeneratePageURL1")]
         public async Task<ActionResult<string>> GeneratePageURL1(PageUrlModel pageurl)
         {
-            string token = HttpContext.Request.Headers["Authrization"];
+            string token = HttpContext.Request.Headers["Authorization"];
 
             string data = JsonConvert.SerializeObject(pageurl);
 
              ApiCaller caller = new ApiCaller();
-             string str=  caller.sendMessageWithAuthToken("https://servicew.wheebox.com/WheeboxRestService_blob/generatepageURL",
-                   data,
-                   token
-                );
+            string str = caller.sendMessageWithAuthToken("https://servicew.wheebox.com/WheeboxRestService_blob/generatepageURL",
+                  data,
+                  token
+               );
+            return str;
+        }
+
+        [HttpPost("GetapproverStatus")]
+        public async Task<ActionResult<string>>GetapproverStatus(ApproveModel approvemodel)
+        {
+            string token = HttpContext.Request.Headers["Authorization"];
+
+            string data = JsonConvert.SerializeObject(approvemodel);
+
+            ApiCaller caller = new ApiCaller();
+            string str = caller.sendMessageWithAuthToken("https://servicew.wheebox.com/WheeboxRestService_blob/getapproverStatus",
+                  data,
+                  token
+               );
+
+
+            return str;
+        }
+
+        [HttpPost("getRegistration")]
+        public async Task<ActionResult<string>> getRegistration(RegistrationModel registrationmodel)
+        {
+            string token = HttpContext.Request.Headers["Authorization"];
+
+            string data = JsonConvert.SerializeObject(registrationmodel);
+
+            ApiCaller caller = new ApiCaller();
+            string str = caller.sendMessageWithAuthToken("https://servicew.wheebox.com/WheeboxRestService_blob/getRegistration",
+                  data,
+                  token
+               );
 
 
             return str;
