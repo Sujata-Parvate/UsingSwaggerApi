@@ -103,6 +103,54 @@ namespace UsingSwaggerApi.Controllers
 
             return str;
         }
+        [HttpPost("GetTrainStatus")]
+        public async Task<ActionResult<string>> GetTrainStatus(TrainModel trainmodel)
+        {
+            string token = HttpContext.Request.Headers["Authorization"];
 
+            string data = JsonConvert.SerializeObject(trainmodel);
+
+            ApiCaller caller = new ApiCaller();
+            string str = caller.sendMessageWithAuthToken("https://servicew.wheebox.com/WheeboxRestService_blob/getTrainStatus",
+                  data,
+                  token
+               );
+
+
+            return str;
+        }
+        [HttpPost("GetReport")]
+        public async Task<ActionResult<string>> GetReport(ReportModel reportmodel)
+        {
+            string token = HttpContext.Request.Headers["Authorization"];
+
+            string data = JsonConvert.SerializeObject(reportmodel);
+
+            ApiCaller caller = new ApiCaller();
+            string str = caller.sendMessageWithAuthToken("https://servicew.wheebox.com/WheeboxRestService_blob/getreport",
+                  data,
+                  token
+               );
+
+
+            return str;
+        }
+
+        [HttpPost("GetReportScore")]
+        public async Task<ActionResult<string>> GetReportScore(ReportModel score)
+        {
+            string token = HttpContext.Request.Headers["Authorization"];
+
+            string data = JsonConvert.SerializeObject(score);
+
+            ApiCaller caller = new ApiCaller();
+            string str = caller.sendMessageWithAuthToken("https://servicew.wheebox.com/WheeboxRestService_blob/getpscore",
+                  data,
+                  token
+               );
+
+
+            return str;
+        }
     }
 }
