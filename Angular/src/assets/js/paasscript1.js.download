@@ -173,7 +173,6 @@ function aadharrBreak(id){
 	
 	
 	var startProctoringThreadinterval;
-	
 	function startProctoringThread(interval,facerec_required,objectdetction_required,token,userdetail){
 		startProctoringThreadinterval=setInterval(function(){sendImagetoserver("captureImage",facerec_required,objectdetction_required,token,userdetail);},interval); 
 	}

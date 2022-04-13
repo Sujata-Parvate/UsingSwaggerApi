@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserComponentComponent } from './user-component.component';
+import { WheeboxComponent } from './wheebox.component';
 
-describe('UserComponentComponent', () => {
-  let component: UserComponentComponent;
-  let fixture: ComponentFixture<UserComponentComponent>;
+describe('WheeboxComponent', () => {
+  let component: WheeboxComponent;
+  let fixture: ComponentFixture<WheeboxComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserComponentComponent ]
+      declarations: [ WheeboxComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserComponentComponent);
+    fixture = TestBed.createComponent(WheeboxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
